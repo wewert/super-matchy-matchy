@@ -1,0 +1,28 @@
+DROP DATABASE IF EXISTS matchy_db;
+
+CREATE DATABASE matchy_db;
+
+USE matchy_db;
+
+DROP TABLE IF EXISTS player;
+
+CREATE TABLE player(
+  id INT NOT NULL AUTO_INCREMENT,
+  player_name VARCHAR(75) NOT NULL,
+  game_level VARCHAR(1) NOT NULL,
+  points INTEGER NOT NULL,
+  createdAt TIMESTAMP NOT NULL,
+  updatedAt TIMESTAMP NOT NULL,
+  PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS image;
+
+CREATE TABLE image(
+  id INT NOT NULL AUTO_INCREMENT,
+  image_name VARCHAR(100) NOT NULL,
+  createdAt TIMESTAMP NOT NULL,
+  updatedAt TIMESTAMP NOT NULL,
+  PRIMARY KEY (id)
+);
+
