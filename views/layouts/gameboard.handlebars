@@ -1,0 +1,7 @@
+<h1>TOP TEN LEADERBOARD!</h1>
+
+<h2>Cats that are not sleepy!</h2>
+
+<ul>
+    {{#each leader}} {{#unless sleepy}} {{> cats/cat-block sleep=true}} {{/unless}} {{/each}}
+</ul>
