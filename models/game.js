@@ -11,7 +11,6 @@ module.exports = function (sequelize, Datatypes) {
             validate: {
                 len: [1]
             },
-
         },
         points: {
             type: Datatypes.INTEGER,
