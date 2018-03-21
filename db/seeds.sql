@@ -3,3 +3,6 @@ INSERT INTO player(player_name, game_level, points, createdAt, updatedAt)VALUES(
 ("Saijai","H", 7, '2018-03-07 03:18:05', '2018-03-07 03:14:07');
 
 INSERT INTO image(image_name, createdAt, updatedAt) VALUES("blot.jpg", '2018-03-07 03:18:05', '2018-03-07 03:14:07'), ("eye.jpg", '2018-03-07 03:18:05', '2018-03-07 03:14:07');
+
+INSERT INTO card(card_value, createdAt, updatedAt)
+VALUES('one-finger.jpg', '2018-03-07 03:14:07', '2018-03-07 03:14:07'), ('two-fingers.jpg', '2018-03-07 03:15:09', '2018-03-07 03:14:07'), ('three-Fingers.jpg', '2018-03-07 03:18:05', ), ('four-fingers.jpg', '2018-03-07 03:18:05', '2018-03-07 03:14:07'), ('five-fingers.jpg', '2018-03-07 03:18:05', '2018-03-07 03:14:07');
