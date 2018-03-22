@@ -1,15 +1,15 @@
-* {
+/* * {
 	margin: 0;
 	padding: 0;
-}
-body {
+} */
+/* body {
 	font: 18px Verdana;
 	color: #FFF;
-  background: red;
-}
+  background: black;
+} */
 #picbox {
 	margin: 0px auto;
-	width: 640px;
+	width: 39%;
 }
 #boxcard {
 	z-index: 1;
@@ -18,14 +18,15 @@ body {
 #boxcard div{
 	float: left;
 	width: 100px;
-	height: 100px;
-	margin: 5px;
+	height: 135px;
+	margin: 6px;
 	padding: 5px;
-	border: 4px solid #EE872A;
+	border: 1px solid #00CED1;
+	background: url('/assets/img/blot.jpg') 0 0;
 	cursor: pointer;
 	border-radius: 10px;
 	box-shadow: 0 1px 5px rgba(0,0,0,.5);
-  background: #B1B1B1;
+  /* background: #D2B48C; */
 	z-index: 2;
 }
 #boxcard div img {
@@ -40,12 +41,12 @@ body {
 }
 #boxbuttons .button {
 	text-transform: uppercase;
-	background: #EE872A;
+	background: #00CED1;
 	padding: 5px 10px;
 	margin: 5px;
-	border-radius: 10px;
+	border-radius: 5px;
 	cursor: pointer;
 }
-#boxbuttons .button:hover {
+/* #boxbuttons .button:hover {
 	background: #999;
-}
+} */
