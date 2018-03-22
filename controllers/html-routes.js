@@ -19,21 +19,17 @@ module.exports = function (app) {
 
   app.get("/summary", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/summary.html"));
+
+  app.get("/leaderboard", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/leaderboard.html"));
+
+  app.get("/gameboard", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/gameboard.html"));
+
   });
 
+});
 
-  // app.get("/game", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/game.html"));
-  // });
+});
 
-
-  // app.get("/summary", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/summary.html"));
-  // });
-
-  // // authors route loads author-manager.html
-  // app.get("/scores", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/scores.html"));
-  // });
-
-};
+}
