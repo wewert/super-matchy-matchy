@@ -23,36 +23,5 @@ $(document).ready(function() {
     $.post("/api/players", playerData);
       // .then(getAuthors);
   }
-}
 
-var addCardListener = function () {
-
-    $deck.find('.card').bind('click', function () {
-        var $this = $(this);
-
-        if ($this.hasClass('show') || $this.hasClass('match')) { return true; }
-
-        var card = $this.context.innerHTML;
-        $this.addClass('open show');
-        allOpen.push(card);
-
-        if (allOpen.length > 1) {
-            if (card === allOpen[0]) {
-                $deck.find('.open').addClass('match');
-                setTimeout(function () {
-                    $deck.find('open').removeClass('open show');
-                }, wait);
-                match++;
-            } else {
-                $deck.find('.open').addClass('notmatch');
-                setTimeout(function () {
-                    $deck.find('.open').removeClass('open show');
-                }, wait / 1.5);
-            }
-            allOpen = [];
-            moves++;
-            rating(moves);
-            $moves.html(moves);
-        }
-    });
-}
+});

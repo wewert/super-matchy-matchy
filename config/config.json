@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "unlockme",
+    "password": "julong56",
     "database": "matchy_db",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
