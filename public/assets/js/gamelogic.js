@@ -1,113 +1,119 @@
-var BoxOpened = "";
-var ImgOpened = "";
-var Counter = 0;
-var ImgFound = 0;
+var boxOpened = "";
+var imgOpened = "";
+var score = 0;
+var counter = 10;
+var imgFound = 0;
 
-var Source = "#boxcard";
+var source = "#boxcard";
 
 // var ImgSource = "public/assets/img/blot.jpg";
 
-var ImgSource = [
+var imgSource = [
   "assets/img/five-fingers.jpg",
-  "http://img6.uploadhouse.com/fileuploads/17699/17699263b01721074bf094aa3bc695aa19c8d573.png",
-  "http://img6.uploadhouse.com/fileuploads/17699/17699262833250fa3063b708c41042005fda437d.png",
-  "http://img9.uploadhouse.com/fileuploads/17699/176992615db99bb0fd652a2e6041388b2839a634.png",
-  "http://img4.uploadhouse.com/fileuploads/17699/176992601ca0f28ba4a8f7b41f99ee026d7aaed8.png",
-  "http://img3.uploadhouse.com/fileuploads/17699/17699259cb2d70c6882adc285ab8d519658b5dd7.png",
-  "http://img2.uploadhouse.com/fileuploads/17699/1769925824ea93cbb77ba9e95c1a4cec7f89b80c.png",
-  "http://img7.uploadhouse.com/fileuploads/17699/1769925708af4fb3c954b1d856da1f4d4dcd548a.png",
-  "http://img9.uploadhouse.com/fileuploads/17699/176992568b759acd78f7cbe98b6e4a7baa90e717.png",
-  "http://img9.uploadhouse.com/fileuploads/17699/176992554c2ca340cc2ea8c0606ecd320824756e.png"
+  "assets/img/four-fingers.jpg",
+  "assets/img/one-finger.jpg",
+  // "assets/img/three-Fingers.jpg",
+  // "assets/img/two-fingers.jpg"
+  // "assets/img/6.jpg",
+  // "assets/img/7.jpg",
+  // "assets/img/8.jpg",
+  // "assets/img/9.jpg",
+  // "assets/img/10.jpg"
 ];
 
-function RandomFunction(MaxValue, MinValue) {
-		return Math.round(Math.random() * (MaxValue - MinValue) + MinValue);
+function randomFunction(maxVal, minVal) {
+		return Math.round(Math.random() * (maxVal - minVal) + minVal);
 	}
 
-function ShuffleImages() {
-	var ImgAll = $(Source).children();
-	var ImgThis = $(Source + " div:first-child");
-	var ImgArr = new Array();
+function shuffleImages() {
+	var imgAll = $(source).children();
+	var imgThis = $(source + " div:first-child");
+	var imgArr = new Array();
 
-	for (var i = 0; i < ImgAll.length; i++) {
-		ImgArr[i] = $("#" + ImgThis.attr("id") + " img").attr("src");
-		ImgThis = ImgThis.next();
+	for (var i = 0; i < imgAll.length; i++) {
+		imgArr[i] = $("#" + imgThis.attr("id") + " img").attr("src");
+		imgThis = imgThis.next();
 	}
 
-		ImgThis = $(Source + " div:first-child");
+		imgThis = $(source + " div:first-child");
 
-	for (var z = 0; z < ImgAll.length; z++) {
-	var RandomNumber = RandomFunction(0, ImgArr.length - 1);
+	for (var z = 0; z < imgAll.length; z++) {
+	var randomNumber = randomFunction(0, imgArr.length - 1);
 
-		$("#" + ImgThis.attr("id") + " img").attr("src", ImgArr[RandomNumber]);
-		ImgArr.splice(RandomNumber, 1);
-		ImgThis = ImgThis.next();
+		$("#" + imgThis.attr("id") + " img").attr("src", imgArr[randomNumber]);
+		imgArr.splice(randomNumber, 1);
+		imgThis = imgThis.next();
 	}
 }
 
-function ResetGame() {
-	ShuffleImages();
-	$(Source + " div img").hide();
-	$(Source + " div").css("visibility", "visible");
-	Counter = 0;
+function resetGame() {
+	shuffleImages();
+	$(source + " div img").hide();
+	$(source + " div").css("visibility", "visible");
+	counter = 10;
 	$("#success").remove();
-	$("#counter").html("" + Counter);
-	BoxOpened = "";
-	ImgOpened = "";
-	ImgFound = 0;
+	$("#counter").html("" + counter);
+	boxOpened = "";
+	imgOpened = "";
+	imgFound = 0;
 	return false;
 }
 
-function OpenCard() {
+function openCard() {
 	var id = $(this).attr("id");
 
 	if ($("#" + id + " img").is(":hidden")) {
-		$(Source + " div").unbind("click", OpenCard);
+		$(source + " div").unbind("click", openCard);
 
 		$("#" + id + " img").slideDown('fast');
 
-		if (ImgOpened == "") {
-			BoxOpened = id;
-			ImgOpened = $("#" + id + " img").attr("src");
+		if (imgOpened == "") {
+			boxOpened = id;
+			imgOpened = $("#" + id + " img").attr("src");
 			setTimeout(function() {
-				$(Source + " div").bind("click", OpenCard)
+				$(source + " div").bind("click", openCard)
 			}, 300);
 		} else {
-			CurrentOpened = $("#" + id + " img").attr("src");
-			if (ImgOpened != CurrentOpened) {
+			currentOpened = $("#" + id + " img").attr("src");
+			if (imgOpened != currentOpened) {
 				setTimeout(function() {
 					$("#" + id + " img").slideUp('fast');
-					$("#" + BoxOpened + " img").slideUp('fast');
-					BoxOpened = "";
-					ImgOpened = "";
+					$("#" + boxOpened + " img").slideUp('fast');
+					boxOpened = "";
+					imgOpened = "";
 				}, 400);
 			} else {
 				$("#" + id + " img").parent().css("visibility", "hidden");
-				$("#" + BoxOpened + " img").parent().css("visibility", "hidden");
-				ImgFound++;
-				BoxOpened = "";
-				ImgOpened = "";
+				$("#" + boxOpened + " img").parent().css("visibility", "hidden");
+				imgFound++;
+				boxOpened = "";
+				imgOpened = "";
 			}
 			setTimeout(function() {
-				$(Source + " div").bind("click", OpenCard)
+				$(source + " div").bind("click", openCard)
 			}, 400);
 		}
-		Counter++;
-		$("#counter").html("" + Counter);
+		counter--;
+    $("#counter").html("" + counter);
+    if ((counter === 0) || (imgFound == imgSource.length)) {
+      window.location.replace("summary.html");
+    }
 
-		if (ImgFound == ImgSource.length) {
-			$("#counter").prepend('<span id="success">You Found All Pictues With </span>');
-		}
+		// if (imgFound == imgSource.length) {
+    //   //place score here?
+    //   $("#score").prepend('<span id="sucess">Your Score is: </span>');
+		// 	// $("#counter").prepend('<span id="success">You Found All Pictues With </span>');
+		// }
 	}
 }
 
 $(function() {
 
 for (var y = 1; y < 3 ; y++) {
-	$.each(ImgSource, function(i, val) {
-		$(Source).append("<div id=card" + y + i + "><img src=" + val + " />");
+	$.each(imgSource, function(i, val) {
+		$(source).append("<div id=card" + y + i + "><img src=" + val + " />");
 	});
 }
-	$(Source + " div").click(OpenCard);
-	ShuffleImages();
+	$(source + " div").click(openCard);
+	shuffleImages();
 });
