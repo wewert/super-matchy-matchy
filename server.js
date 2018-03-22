@@ -25,9 +25,8 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/game_controllers.js");
-require("./controllers/html-routes.js");
 app.use("/", routes);
-//if {force:true} 
+//if {force:true}
 db.sequelize.sync().then(function () {
     app.listen(port);
 });
