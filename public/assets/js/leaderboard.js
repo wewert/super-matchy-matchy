@@ -1,6 +1,9 @@
-function Display(playerData) {
-    $.post("/api/players", playerData);
-    // .then(getAuthors);
-}
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function () {
+    $.ajax("/players", {
+        type: "GET"
+    }).then(function (players) {
+        console.log(players);
+    });
 
-Display(playerData);
+});
