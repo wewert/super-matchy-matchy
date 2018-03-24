@@ -102,10 +102,11 @@ function openCard() {
 			}, 400);
 		}
 		counter--;
-		$("#counter").html("" + counter);
-		if ((counter === 0) || (imgFound == imgSource.length)) {
-			window.location.replace("summary.html");
-		}
+    $("#counter").html("" + counter);
+    if ((counter === 0) || (imgFound == imgSource.length)) {
+      window.location.replace("summary.html");
+      localStorage.setItem('score', score);
+    }
 
 		// if (imgFound == imgSource.length) {
 		//   //place score here?
