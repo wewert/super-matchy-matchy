@@ -2,8 +2,6 @@ var express = require("express");
 var router = express.Router();
 var path = require("path");
 var db = require("../models");
-sequelize = db.sequelize,
-  Sequelize = db.Sequelize;
 
 router.get("/summary", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/summary.html"))
@@ -12,15 +10,6 @@ router.get("/summary", function (req, res) {
 router.get("/leaderboard", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/leaderboard.html"))
 });
-
-
-router.post("/api/players", function(req, res) {
-  db.player.create(req.body).then(function(dbPlayer) {
-    res.json(dbPlayer);
-  });
-});
-
-
 
 //plan is to pass value game level from gameboard/summary/toleaderboard until then hard coded 'E'.  
 router.get("/players/", function (req, res) {
@@ -39,4 +28,3 @@ router.get("/players/", function (req, res) {
 });
 
 module.exports = router;
-
