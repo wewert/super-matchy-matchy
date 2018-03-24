@@ -2,17 +2,6 @@ $(document).ready(function () {
 
   var playerScore = localStorage.getItem("score");
   var difficultyLevel = localStorage.getItem("difficulty");
-  switch (difficultyLevel) {
-    case "easy":
-      difficultyLevel = 'E'
-      break;
-    case "moderate":
-      difficultyLevel = "M"
-      break;
-    case "hard":
-      difficultyLevel = "H"
-  }
-
   var newScore = $("#score");
   var scoreDiv = $("<div>");
   scoreDiv = playerScore;
@@ -48,4 +37,3 @@ $(document).ready(function () {
   }
 
 });
-
