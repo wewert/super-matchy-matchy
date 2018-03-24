@@ -2,8 +2,6 @@ var express = require("express");
 var router = express.Router();
 var path = require("path");
 var db = require("../models");
-sequelize = db.sequelize,
-  Sequelize = db.Sequelize;
 
 router.get("/summary", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/summary.html"))
@@ -22,10 +20,11 @@ router.post("/api/players", function(req, res) {
 
 
 
-//plan is to pass value game level from gameboard/summary/toleaderboard until then hard coded 'E'.  
+//plan is to pass value game level from gameboard/summary/toleaderboard until then hard coded 'E'.
 router.get("/players/", function (req, res) {
   db.player.findAll({
-    where: {
+    where:
+    {
       game_level: 'E'
     },
     order: [
@@ -39,4 +38,3 @@ router.get("/players/", function (req, res) {
 });
 
 module.exports = router;
-
