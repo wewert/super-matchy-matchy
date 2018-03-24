@@ -12,7 +12,7 @@ router.get("/leaderboard", function (req, res) {
 });
 
 //plan is to pass value game level from gameboard/summary/toleaderboard until then hard coded 'E'.  
-router.get("/players/:game_level", function (req, res) {
+router.get("/players/", function (req, res) {
   db.player.findAll({
     where: {
       game_level: 'E'
