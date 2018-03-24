@@ -1,6 +1,8 @@
 var boxOpened = "";
 var imgOpened = "";
-var score = 0;
+var yep = 0;
+var nope = 0;
+var score = nope + yep;
 var counter = 10;
 var imgFound = 0;
 
@@ -50,6 +52,7 @@ function resetGame() {
 	shuffleImages();
 	$(source + " div img").hide();
 	$(source + " div").css("visibility", "visible");
+  score = 0;
 	counter = 10;
 	$("#success").remove();
 	$("#counter").html("" + counter);
@@ -76,6 +79,7 @@ function openCard() {
 		} else {
 			currentOpened = $("#" + id + " img").attr("src");
 			if (imgOpened != currentOpened) {
+        nope = nope-=100;
 				setTimeout(function() {
 					$("#" + id + " img").slideUp('fast');
 					$("#" + boxOpened + " img").slideUp('fast');
@@ -85,10 +89,14 @@ function openCard() {
 			} else {
 				$("#" + id + " img").parent().css("visibility", "hidden");
 				$("#" + boxOpened + " img").parent().css("visibility", "hidden");
+        yep = yep+=250;
 				imgFound++;
 				boxOpened = "";
 				imgOpened = "";
 			}
+      score = nope +yep;
+      $("#score").html("" + score);
+
 			setTimeout(function() {
 				$(source + " div").bind("click", openCard)
 			}, 400);
