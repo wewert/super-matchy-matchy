@@ -10,7 +10,9 @@ module.exports = function (sequelize, Datatypes) {
             isUppercase: true,
             validate: {
                 len: [1],
-                is: ['E', 'M', 'H'],
+                isIn: [
+                    ["E", "M", "H"]
+                ],
                 isUppercase: true
             },
         },
