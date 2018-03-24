@@ -2,8 +2,25 @@
 $(function () {
     $.ajax("/players", {
         type: "GET"
-    }).then(function (players) {
-        console.log(players);
+    }).done(function (response) {
+        // console.log(response);
+        displayPlayers(response);
     });
 
 });
+
+function displayPlayers(response) {
+    $("tBody").empty();
+    var tBody = $("tbody");
+    var tRow = $("<tr>");
+    for (var i = 0; i < response.length; i++) {
+
+        var player_name = $("<td>").append(response[i].player_name);
+        var game_level = $("<td>").append(response[i].game_level);
+        var points = $("<td>").append(response[i].points);
+        tRow.append(player_name, game_level, points);
+        // appends rows to body
+        $("tBody").html(tRow);
+    };
+
+};
