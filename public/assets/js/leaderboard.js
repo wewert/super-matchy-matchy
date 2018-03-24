@@ -10,17 +10,22 @@ $(function () {
 });
 
 function displayPlayers(response) {
-    $("tBody").empty();
-    var tBody = $("tbody");
-    var tRow = $("<tr>");
-    for (var i = 0; i < response.length; i++) {
+    $('tBody').empty();
+    var tBody = $('tbody');
 
-        var player_name = $("<td>").append(response[i].player_name);
-        var game_level = $("<td>").append(response[i].game_level);
-        var points = $("<td>").append(response[i].points);
-        tRow.append(player_name, game_level, points);
+    for (var i = 0; i < response.length; i++) {
+        var tRow = $('<tr>');
+        var playerName = "<td id= 'player-column'> " + response[i].player_name + "</td>";
+        var gameLevel = "<td id= 'level-column'> " + response[i].game_level + "</td>";
+        var points = "<td id= 'score-column'> " + response[i].points + "</td>";
+        // var playerName = $('<td>').text(response[i].player_name);
+        // var gameLevel = $('<td>').text(response[i].game_level);
+        // var points = $('<td>').text(response[i].points);
+        tRow.append(playerName, gameLevel, points);
+
         // appends rows to body
-        $("tBody").html(tRow);
+        $('tBody').append(tRow);
+
     };
 
 };
