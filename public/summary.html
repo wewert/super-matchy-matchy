@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" -->
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@
 
     <main role="main" class="inner cover">
       <h1 class="cover-heading">Your Score</h1>
-      <div id="score">177</div>
+      <div id="score"></div>
       <p class="lead">Sign in below to see highest scores in your level.</p>
       <p class="lead">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -43,9 +43,11 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <a href="leaderboard.html">
-          <button id="name" action="leaderboard.html" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </a>
+        <!-- <a href="leaderboard.html">
+          <button id="name" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </a> -->
+
+        <button class="btn btn-lg btn-primary btn-block submit-btn" type="submit">Sign In</button>
       </p>
     </main>
 
