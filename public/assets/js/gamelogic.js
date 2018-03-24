@@ -97,6 +97,7 @@ function openCard() {
     $("#counter").html("" + counter);
     if ((counter === 0) || (imgFound == imgSource.length)) {
       window.location.replace("summary.html");
+      localStorage.setItem('score', score);
     }
 
 		// if (imgFound == imgSource.length) {

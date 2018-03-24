@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 
 var db = require("../models");
+sequelize = db.sequelize,
+  Sequelize = db.Sequelize;
 
 router.get("/", function (req, res) {
   db.player.findAll()
@@ -15,10 +17,10 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/players", function(req, res) {
-// Insert player to a player DB
-  db.Player.create(req.body).then(function(dbPlayer) {
+  db.player.create(req.body).then(function(dbPlayer) {
     res.json(dbPlayer);
   });
 });
+
 
 module.exports = router;
