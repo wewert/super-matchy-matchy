@@ -1,4 +1,3 @@
-var Sequelize = require('sequelize');
 module.exports = function (sequelize, Datatypes) {
     var Player = sequelize.define("player", {
         player_name: {
