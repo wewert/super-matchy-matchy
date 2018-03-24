@@ -1,58 +1,40 @@
-$(document).ready(function() {
-  var playerScore = $("#score");
-  var playerName = $("#name");
+$(document).ready(function () {
+
+  var playerScore = localStorage.getItem("score");
+  var difficultyLevel = localStorage.getItem("difficulty");
+  var newScore = $("#score");
+  var scoreDiv = $("<div>");
+  scoreDiv = playerScore;
+  newScore.append(scoreDiv);
+
 
   // take score from previous page
+  console.log(localStorage.getItem("difficulty"));
+  console.log(localStorage.getItem("score"));
+  console.log("playerScore", playerScore);
+  console.log("difficulty", difficultyLevel);
 
-  $(document).on("submit", "#name", handlePlayerSubmitButton);
-
-  function handlePlayerSubmitButton(event) {
+  $(".submit-btn").on("click", function handleFormSubmit(event) {
     event.preventDefault();
-
-    if (!playerName.val().trim().trim()) {
+    var playerName = $("#inputName").val().trim();
+    console.log("playerName", playerName);
+    if (!playerName) {
       return;
     }
-    // Calling the upsertPlayer function and passing in the value of the player_name and points
-    upsertPlayer({
-      player_name: playerName.val().trim(),
-      points: playerScore.val().trim()
+    var newPlayer = {
+      player_name: playerName,
+      points: playerScore,
+      game_level: difficultyLevel
+    };
+    console.log(newPlayer);
+    submitPlayer(newPlayer);
+  });
+
+  function submitPlayer(Player) {
+    $.post("/api/players/", Player, function () {
+      window.location.href = "/leaderboard.html";
     });
   }
 
-  function upsertPlayer(playerData) {
-    $.post("/api/players", playerData);
-      // .then(getAuthors);
-  }
-}
+});
 
-var addCardListener = function () {
-
-    $deck.find('.card').bind('click', function () {
-        var $this = $(this);
-
-        if ($this.hasClass('show') || $this.hasClass('match')) { return true; }
-
-        var card = $this.context.innerHTML;
-        $this.addClass('open show');
-        allOpen.push(card);
-
-        if (allOpen.length > 1) {
-            if (card === allOpen[0]) {
-                $deck.find('.open').addClass('match');
-                setTimeout(function () {
-                    $deck.find('open').removeClass('open show');
-                }, wait);
-                match++;
-            } else {
-                $deck.find('.open').addClass('notmatch');
-                setTimeout(function () {
-                    $deck.find('.open').removeClass('open show');
-                }, wait / 1.5);
-            }
-            allOpen = [];
-            moves++;
-            rating(moves);
-            $moves.html(moves);
-        }
-    });
-}

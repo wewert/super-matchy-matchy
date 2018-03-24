@@ -8,8 +8,13 @@ module.exports = function (sequelize, Datatypes) {
             type: Datatypes.STRING,
             allowNull: false,
             isUppercase: true,
+
             validate: {
-                len: [1]
+                len: [1],
+                isIn: [
+                    ["E", "M", "H"]
+                ],
+                isUppercase: true
             },
         },
         points: {
