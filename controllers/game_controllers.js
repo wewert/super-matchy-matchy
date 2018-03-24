@@ -21,7 +21,8 @@ router.post("/api/players", function (req, res) {
 //plan is to pass value game level from gameboard/summary/toleaderboard until then hard coded 'E'.  
 router.get("/players/", function (req, res) {
   db.player.findAll({
-    where: {
+    where:
+    {
       game_level: 'E'
     },
     order: [

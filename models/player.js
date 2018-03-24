@@ -8,6 +8,7 @@ module.exports = function (sequelize, Datatypes) {
             type: Datatypes.STRING,
             allowNull: false,
             isUppercase: true,
+
             validate: {
                 len: [1],
                 isIn: [
