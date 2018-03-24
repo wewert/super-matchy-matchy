@@ -1,4 +1,3 @@
-var Sequelize = require('sequelize');
 module.exports = function (sequelize, Datatypes) {
     var Player = sequelize.define("player", {
         player_name: {
@@ -9,11 +8,14 @@ module.exports = function (sequelize, Datatypes) {
             type: Datatypes.STRING,
             allowNull: false,
             isUppercase: true,
-            // validate: {
-            //     len: [1],
-            //     is: ['E', 'M', 'H'],
-            //     isUppercase: true
-            // },
+
+            validate: {
+                len: [1],
+                isIn: [
+                    ["E", "M", "H"]
+                ],
+                isUppercase: true
+            },
         },
         points: {
             type: Datatypes.INTEGER,
