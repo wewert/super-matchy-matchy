@@ -40,6 +40,15 @@
             <br>
         </div>
     </div>
+  <script>
+    $(".difficulty-btn").on("click", function(){
+      localStorage.setItem('difficulty', $(this).attr("data-difficulty"));
+      console.log(localStorage.getItem("difficulty"));
+      window.location.assign('gameboard.html');
+    });
+//test
+  </script>
+
 </body>
 
 </html>
