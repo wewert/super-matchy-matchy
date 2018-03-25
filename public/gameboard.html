@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Super Matchy-Matchy Game</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script type="text/javascript" src="assets/js/gamelogic.js"></script>
-  </head>
 
-  <body>
-    <div id="picbox">
-      <span id="boxbuttons">
-        <span class="button">
-          <span id="score">0</span>
-          Score
-        </span>
-        <span class="button">
-          <span id="counter">10</span>
-          Clicks Left
-        </span>
-        <span class="button">
-          <a onclick="ResetGame();">mulligan</a>
-        </span>
+<head>
+  <meta charset="UTF-8">
+  <title>Super Matchy-Matchy Game</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="assets/js/gamelogic.js"></script>
+  <link rel="stylesheet" href="assets/css/indexstyle.css">
+</head>
+
+<body>
+  <div id="picbox">
+    <span id="boxbuttons">
+      <span class="button">
+        <span id="score">0</span>
+        Score
       </span>
-      <div id="boxcard"></div>
-    </div>
-    <script type="text/javascript">
-      console.log(localStorage.getItem("difficulty"));
-      // localStorage.setItem('score', $(this).attr("data-difficulty"));
-    </script>
-  </body>
+      <span class="button">
+        <span id="counter">10</span>
+        Clicks Left
+      </span>
+      <span class="button">
+        <a onclick="ResetGame();">mulligan</a>
+      </span>
+    </span>
+    <div id="boxcard"></div>
+  </div>
+  <script type="text/javascript">
+    console.log(localStorage.getItem("difficulty"));
+    // localStorage.setItem('score', $(this).attr("data-difficulty"));
+  </script>
+</body>
 
 </html>
