@@ -21,31 +21,15 @@ var imgSource = [
 	// "assets/img/8.jpg",
 	// "assets/img/9.jpg",
 	// "assets/img/10.jpg"
-  'assets/img/IMG1.jpg',
-  'assets/img/IMG2.jpg',
-  'assets/img/IMG3.jpg',
-  'assets/img/IMG4.jpg',
-  'assets/img/IMG5.jpg',
-  'assets/img/IMG6.jpg',
-  'assets/img/IMG7.jpg',
-  'assets/img/IMG8.jpg',
-  'assets/img/IMG9.jpg',
-  'assets/img/IMG10.jpg',
-  'assets/img/IMG11.jpg',
-  'assets/img/IMG12.jpg',
-  'assets/img/IMG13.jpg',
-  'assets/img/IMG14.jpg',
-  'assets/img/IMG15.jpg',
-  'assets/img/IMG16.jpg',
-  'assets/img/IMG17.jpg',
-  'assets/img/IMG18.jpg',
-  'assets/img/IMG19.jpg',
-  'assets/img/IMG20.jpg',
-  'assets/img/IMG21.jpg',
-  'assets/img/IMG22.jpg',
-  'assets/img/IMG23.jpg',
-  'assets/img/IMG24.jpg',
-  'assets/img/IMG25.jpg'
+	'assets/img/IMG1.jpg',
+	'assets/img/IMG2.jpg',
+	'assets/img/IMG3.jpg',
+	'assets/img/IMG4.jpg',
+	'assets/img/IMG5.jpg',
+	'assets/img/IMG6.jpg',
+	'assets/img/IMG7.jpg',
+	'assets/img/IMG8.jpg',
+
 ];
 
 function randomFunction(maxVal, minVal) {
@@ -77,7 +61,9 @@ function resetGame() {
 	shuffleImages();
 	$(source + " div img").hide();
 	$(source + " div").css("visibility", "visible");
-	score = 0;
+	var score = 0;
+	var nope = 0;
+	var yep = 0;
 	counter = 10;
 	$("#success").remove();
 	$("#counter").html("" + counter);
@@ -127,11 +113,11 @@ function openCard() {
 			}, 400);
 		}
 		counter--;
-    $("#counter").html("" + counter);
-    if ((counter === 0) || (imgFound == imgSource.length)) {
-      window.location.replace("summary.html");
-      localStorage.setItem('score', score);
-    }
+		$("#counter").html("" + counter);
+		if ((counter === 0) || (imgFound == imgSource.length)) {
+			window.location.replace("summary.html");
+			localStorage.setItem('score', score);
+		}
 
 		// if (imgFound == imgSource.length) {
 		//   //place score here?
