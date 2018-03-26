@@ -1,12 +1,3 @@
-/* * {
-	margin: 0;
-	padding: 0;
-} */
-/* body {
-	font: 18px Verdana;
-	color: #FFF;
-  background: black;
-} */
 #picbox {
 	margin: 0px auto;
 	width: 39%;
@@ -22,11 +13,10 @@
 	margin: 6px;
 	padding: 5px;
 	border: 1px solid #00CED1;
-	background: url('/assets/img/blot.jpg') 0 0;
+	background: url('/assets/img/cardBorder1.jpg') 0 0;
 	cursor: pointer;
 	border-radius: 10px;
 	box-shadow: 0 1px 5px rgba(0,0,0,.5);
-  /* background: #D2B48C; */
 	z-index: 2;
 }
 #boxcard div img {
@@ -37,6 +27,7 @@
 #boxbuttons {
 	text-align: center;
 	margin: 20px;
+	margin-right: 15%;
 	display: block;
 }
 #boxbuttons .button {
@@ -47,6 +38,3 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
-/* #boxbuttons .button:hover {
-	background: #999;
-} */

@@ -5,22 +5,8 @@ var nope = 0;
 var score = nope + yep;
 var counter = 10;
 var imgFound = 0;
-
 var source = "#boxcard";
-
-// var ImgSource = "public/assets/img/blot.jpg";
-
 var imgSource = [
-	// "assets/img/five-fingers.jpg",
-	// "assets/img/four-fingers.jpg",
-	// "assets/img/one-finger.jpg",
-	// "assets/img/three-Fingers.jpg",
-	// "assets/img/two-fingers.jpg"
-	// "assets/img/6.jpg",
-	// "assets/img/7.jpg",
-	// "assets/img/8.jpg",
-	// "assets/img/9.jpg",
-	// "assets/img/10.jpg"
 	'assets/img/IMG1.jpg',
 	'assets/img/IMG2.jpg',
 	'assets/img/IMG3.jpg',
@@ -28,8 +14,7 @@ var imgSource = [
 	'assets/img/IMG5.jpg',
 	'assets/img/IMG6.jpg',
 	'assets/img/IMG7.jpg',
-	'assets/img/IMG8.jpg',
-
+	'assets/img/IMG8.jpg'
 ];
 
 function randomFunction(maxVal, minVal) {
@@ -61,12 +46,11 @@ function resetGame() {
 	shuffleImages();
 	$(source + " div img").hide();
 	$(source + " div").css("visibility", "visible");
-	var score = 0;
-	var nope = 0;
-	var yep = 0;
+  score = 0;
 	counter = 10;
 	$("#success").remove();
 	$("#counter").html("" + counter);
+  $("#score").html("" + score);
 	boxOpened = "";
 	imgOpened = "";
 	imgFound = 0;
@@ -118,17 +102,10 @@ function openCard() {
 			window.location.replace("summary.html");
 			localStorage.setItem('score', score);
 		}
-
-		// if (imgFound == imgSource.length) {
-		//   //place score here?
-		//   $("#score").prepend('<span id="sucess">Your Score is: </span>');
-		// 	// $("#counter").prepend('<span id="success">You Found All Pictues With </span>');
-		// }
 	}
 }
 
 $(function () {
-
 	for (var y = 1; y < 3; y++) {
 		$.each(imgSource, function (i, val) {
 			$(source).append("<div id=card" + y + i + "><img src=" + val + " />");
