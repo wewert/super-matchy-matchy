@@ -3,7 +3,7 @@ var imgOpened = "";
 var yep = 0;
 var nope = 0;
 var score = nope + yep;
-var counter = 30;
+
 var imgFound = 0;
 var source = "#boxcard";
 var imgSource = [
@@ -16,6 +16,25 @@ var imgSource = [
 	'assets/img/IMG7.jpg',
 	'assets/img/IMG8.jpg'
 ];
+
+var difficulty = localStorage.getItem("difficulty");
+var counter = setCounter();
+console.log("21", counter);
+$("#counter").html("" + counter);
+
+function setCounter() {
+	switch (difficulty) {
+		case "H":
+			var counter = 20;
+			break;
+		case "M":
+			var counter = 30;
+			break;
+		case "E":
+			var counter = 40;
+	}
+	return counter;
+}
 
 function randomFunction(maxVal, minVal) {
 	return Math.round(Math.random() * (maxVal - minVal) + minVal);
@@ -46,11 +65,11 @@ function resetGame() {
 	shuffleImages();
 	$(source + " div img").hide();
 	$(source + " div").css("visibility", "visible");
-  score = 0;
-	counter = 0;
+	score = 0;
+	counter = setCounter();
 	$("#success").remove();
 	$("#counter").html("" + counter);
-  $("#score").html("" + score);
+	$("#score").html("" + score);
 	boxOpened = "";
 	imgOpened = "";
 	imgFound = 0;
