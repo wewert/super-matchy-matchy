@@ -11,28 +11,28 @@ router.get("/leaderboard", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/leaderboard.html"))
 });
 
-//saijai
+//insert new row
 router.post("/api/players", function (req, res) {
   db.player.create(req.body).then(function (dbPlayer) {
     res.json(dbPlayer);
   });
 });
 
-//plan is to pass value game level from gameboard/summary/toleaderboard until then hard coded 'E'.  
-router.get("/players/", function (req, res) {
+//pull data from the database according to diff level
+router.get("/api/difficulties/difficulty/:difficulty", function (req, res) {
   db.player.findAll({
-    where:
-    {
-      game_level: 'E'
-    },
-    order: [
-      ['points', 'DESC']
-    ]
-
-  }).then(function (data) {
-    // console.log(data);
-    res.json(data);
-  });
+      where: {
+        game_level: req.params.difficulty
+      },
+      order: [
+        ['points', 'DESC'],
+      ],
+      limit: 10
+      // order: [sequelize.fn('max', sequelize.col('points'))]
+    })
+    .then(function (dbPlayer) {
+      res.json(dbPlayer);
+    });
 });
 
 module.exports = router;
