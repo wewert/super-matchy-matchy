@@ -11,9 +11,9 @@ var source = "#boxcard";
 // var ImgSource = "public/assets/img/blot.jpg";
 
 var imgSource = [
-	"assets/img/five-fingers.jpg",
-	"assets/img/four-fingers.jpg",
-	"assets/img/one-finger.jpg",
+	// "assets/img/five-fingers.jpg",
+	// "assets/img/four-fingers.jpg",
+	// "assets/img/one-finger.jpg",
 	// "assets/img/three-Fingers.jpg",
 	// "assets/img/two-fingers.jpg"
 	// "assets/img/6.jpg",
@@ -21,6 +21,31 @@ var imgSource = [
 	// "assets/img/8.jpg",
 	// "assets/img/9.jpg",
 	// "assets/img/10.jpg"
+  'assets/img/IMG1.jpg',
+  'assets/img/IMG2.jpg',
+  'assets/img/IMG3.jpg',
+  'assets/img/IMG4.jpg',
+  'assets/img/IMG5.jpg',
+  'assets/img/IMG6.jpg',
+  'assets/img/IMG7.jpg',
+  'assets/img/IMG8.jpg',
+  'assets/img/IMG9.jpg',
+  'assets/img/IMG10.jpg',
+  'assets/img/IMG11.jpg',
+  'assets/img/IMG12.jpg',
+  'assets/img/IMG13.jpg',
+  'assets/img/IMG14.jpg',
+  'assets/img/IMG15.jpg',
+  'assets/img/IMG16.jpg',
+  'assets/img/IMG17.jpg',
+  'assets/img/IMG18.jpg',
+  'assets/img/IMG19.jpg',
+  'assets/img/IMG20.jpg',
+  'assets/img/IMG21.jpg',
+  'assets/img/IMG22.jpg',
+  'assets/img/IMG23.jpg',
+  'assets/img/IMG24.jpg',
+  'assets/img/IMG25.jpg'
 ];
 
 function randomFunction(maxVal, minVal) {
