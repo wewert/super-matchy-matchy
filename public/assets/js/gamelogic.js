@@ -3,7 +3,7 @@ var imgOpened = "";
 var yep = 0;
 var nope = 0;
 var score = nope + yep;
-var counter = 10;
+var counter = 30;
 var imgFound = 0;
 var source = "#boxcard";
 var imgSource = [
@@ -47,7 +47,7 @@ function resetGame() {
 	$(source + " div img").hide();
 	$(source + " div").css("visibility", "visible");
   score = 0;
-	counter = 10;
+	counter = 0;
 	$("#success").remove();
 	$("#counter").html("" + counter);
   $("#score").html("" + score);
