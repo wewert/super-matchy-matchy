@@ -15,10 +15,10 @@
 	margin: 6px;
 	padding: 5px;
 	border: 1px solid #00CED1;
-	background: url('/assets/img/blot.jpg') 0 0;
+	background: url('/assets/img/cardBorder1.jpg') 0 0;
 	cursor: pointer;
 	border-radius: 10px;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, .5);
+	box-shadow: 0 1px 5px rgba(0,0,0,.5);
 	z-index: 2;
 }
 
@@ -31,6 +31,7 @@
 #boxbuttons {
 	text-align: center;
 	margin: 20px;
+	margin-right: 15%;
 	display: block;
 }
 
@@ -41,4 +42,4 @@
 	margin: 5px;
 	border-radius: 5px;
 	cursor: pointer;
-}
+
